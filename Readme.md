@@ -44,8 +44,6 @@ Deploy application
 ```
   cd "Aws.StepFunctions.ResumeUploader/src/Aws.StepFunctions.ResumeUploader"
   dotnet lambda deploy-function --function-name upload-resume-step --function-handler Aws.StepFunctions.ResumeUploader::Aws.StepFunctions.ResumeUploader.LambdaFunctions::UploadResume
-  dotnet lambda deploy-function --function-name look-for-github-profile-step --function-handler Aws.StepFunctions.ResumeUploader::Aws.StepFunctions.ResumeUploader.LambdaFunct
-ions::LookForGithubProfile
-  dotnet lambda deploy-function --function-name on-failed-to-upload-step --function-handler Aws.StepFunctions.ResumeUploader::Aws.StepFunctions.ResumeUploader.LambdaFunctions
-::OnFailedToUpload
+  dotnet lambda deploy-function --function-name look-for-github-profile-step --function-handler Aws.StepFunctions.ResumeUploader::Aws.StepFunctions.ResumeUploader.LambdaFunctions::LookForGithubProfile
+  dotnet lambda deploy-function --function-name on-failed-to-upload-step --function-handler Aws.StepFunctions.ResumeUploader::Aws.StepFunctions.ResumeUploader.LambdaFunctions::OnFailedToUpload
 ```
