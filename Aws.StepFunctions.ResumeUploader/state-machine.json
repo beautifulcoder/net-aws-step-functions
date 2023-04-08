@@ -1,0 +1,45 @@
+{
+  "Comment": "Resume Uploader State Machine",
+  "StartAt": "UploadResume",
+  "States": {
+    "UploadResume": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:158801581508:function:upload-resume-step",
+      "Next": "LookForGithubProfile",
+      "Catch": [
+        {
+          "ErrorEquals": [ "States.ALL" ],
+          "Next": "OnFailedToUpload"
+        }
+      ]
+    },
+    "LookForGithubProfile": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:158801581508:function:look-for-github-profile-step",
+      "Next": "QueueResume",
+      "Catch": [
+        {
+          "ErrorEquals": [ "States.ALL" ],
+          "Next": "OnFailedToUpload"
+        }
+      ]
+    },
+    "OnFailedToUpload": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:158801581508:function:on-failed-to-upload-step",
+      "End": true
+    },
+    "QueueResume": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sqs:sendMessage",
+      "Parameters": {
+        "QueueUrl": "https://sqs.us-east-1.amazonaws.com/158801581508/ResumeFilesUploaded",
+        "MessageBody": {
+          "StoredFileUrl.$": "$.StoredFileUrl",
+          "GithubProfileUrl.$": "$.GithubProfileUrl"
+        }
+      },
+      "End": true
+    }
+  }
+}

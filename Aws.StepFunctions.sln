@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aws.StepFunctions.ResumeUploader", "Aws.StepFunctions.ResumeUploader\Aws.StepFunctions.ResumeUploader.csproj", "{CFBDC961-1C07-49CF-A30C-5AF0994E8E73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aws.StepFunctions.ResumeUploader.Tests", "Aws.StepFunctions.ResumeUploader.Tests\Aws.StepFunctions.ResumeUploader.Tests.csproj", "{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFBDC961-1C07-49CF-A30C-5AF0994E8E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFBDC961-1C07-49CF-A30C-5AF0994E8E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFBDC961-1C07-49CF-A30C-5AF0994E8E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFBDC961-1C07-49CF-A30C-5AF0994E8E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,139 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "An asynchronous resume uploader.",
+  "Resources": {
+    "upload-resume-step": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "Aws.StepFunctions.ResumeUploader::Aws.StepFunctions.ResumeUploader.LambdaFunctions::UploadResume",
+        "Role": {
+          "Fn::GetAtt": [
+            "LambdaRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "dotnet6",
+        "MemorySize": 2048,
+        "Timeout": 5,
+        "Code": {
+          "S3Bucket": "",
+          "S3Key": ""
+        }
+      }
+    },
+    "look-for-github-profile-step": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "Aws.StepFunctions.ResumeUploader::Aws.StepFunctions.ResumeUploader.StepFunctionTasks::LookForGithubProfile",
+        "Role": {
+          "Fn::GetAtt": [
+            "LambdaRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "dotnet6",
+        "MemorySize": 2048,
+        "Timeout": 5,
+        "Code": {
+          "S3Bucket": "",
+          "S3Key": ""
+        }
+      }
+    },
+    "on-failed-to-upload-step": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Handler": "Aws.StepFunctions.ResumeUploader::Aws.StepFunctions.ResumeUploader.StepFunctionTasks::OnFailedToUpload",
+        "Role": {
+          "Fn::GetAtt": [
+            "LambdaRole",
+            "Arn"
+          ]
+        },
+        "Runtime": "dotnet6",
+        "MemorySize": 2048,
+        "Timeout": 5,
+        "Code": {
+          "S3Bucket": "",
+          "S3Key": ""
+        }
+      }
+    },
+    "StateMachine": {
+      "Type": "AWS::StepFunctions::StateMachine",
+      "Properties": {
+        "RoleArn": {
+          "Fn::GetAtt": [
+            "StateMachineRole",
+            "Arn"
+          ]
+        },
+        "DefinitionString": {
+          "Fn::Sub": ""
+        }
+      }
+    },
+    "LambdaRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": [
+                "sts:AssumeRole"
+              ],
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              }
+            }
+          ]
+        },
+        "ManagedPolicyArns": [
+          "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+        ]
+      }
+    },
+    "StateMachineRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": {
+                  "Fn::Sub": "states.${AWS::Region}.amazonaws.com"
+                }
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": "StepFunctionLambdaInvoke",
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "lambda:InvokeFunction"
+                  ],
+                  "Resource": "*"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {}
+}
