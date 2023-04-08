@@ -1,7 +1,5 @@
 # .NET Step Functions
 
-This starter project consists of:
-
 * serverless.template - An AWS CloudFormation template file for declaring your Serverless functions and other AWS resources
 * state-machine.json -The definition of the Step Function state machine.
 * LambdaFunctions.cs - This class contains the Lambda functions that the Step Function state machine will call.
@@ -16,9 +14,11 @@ You may also have a test project depending on the options selected.
 
 Once the project is deployed you can test it with the Step Functions in the web console https://console.aws.amazon.com/states/home. Select the newly created state machine and then click the "New Execution" button. Enter the initial JSON document for the input to the execution which will be serialized in to the State object. This project will look for a "Name" property to use in its execution. Here is an example input JSON.
 
+```
 {
-    "FileName" : "ExampleResume.pdf"
+  "FileName" : "ExampleResume.pdf"
 }
+```
 
 ## Here are some steps to follow to get started from the command line:
 
