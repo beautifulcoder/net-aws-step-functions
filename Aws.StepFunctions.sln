@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aws.StepFunctions.ResumeUpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aws.StepFunctions.ResumeUploader.Tests", "Aws.StepFunctions.ResumeUploader.Tests\Aws.StepFunctions.ResumeUploader.Tests.csproj", "{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aws.Api.ResumeUploader", "Aws.Api.ResumeUploader\Aws.Api.ResumeUploader.csproj", "{5F2BD0F8-529D-4957-A95D-F7645214DC1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aws.Api.ResumeUploader.Tests", "Aws.Api.ResumeUploader.Tests\Aws.Api.ResumeUploader.Tests.csproj", "{1FCB7EE2-C0BA-4FDD-9E7C-745768F4295E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4AD6A71-F2B9-4BE4-A978-50355295B5A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F2BD0F8-529D-4957-A95D-F7645214DC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F2BD0F8-529D-4957-A95D-F7645214DC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F2BD0F8-529D-4957-A95D-F7645214DC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F2BD0F8-529D-4957-A95D-F7645214DC1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FCB7EE2-C0BA-4FDD-9E7C-745768F4295E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FCB7EE2-C0BA-4FDD-9E7C-745768F4295E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FCB7EE2-C0BA-4FDD-9E7C-745768F4295E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FCB7EE2-C0BA-4FDD-9E7C-745768F4295E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

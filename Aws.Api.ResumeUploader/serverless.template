@@ -1,0 +1,114 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "An AWS Serverless Application. This template is partially managed by Amazon.Lambda.Annotations (v1.0.0.0).",
+  "Resources": {
+    "AwsApiResumeUploaderFunctionsGetGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootGet"
+        ]
+      },
+      "Properties": {
+        "Architectures": [
+          "arm64"
+        ],
+        "FunctionName": "resume-uploader-api-get",
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 1024,
+        "Timeout": 5,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Aws.Api.ResumeUploader::Aws.Api.ResumeUploader.Functions_Get_Generated::Get",
+        "Events": {
+          "RootGet": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/",
+              "Method": "GET"
+            }
+          }
+        }
+      }
+    },
+    "AwsApiResumeUploaderFunctionsPostGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootPost"
+        ]
+      },
+      "Properties": {
+        "Architectures": [
+          "arm64"
+        ],
+        "FunctionName": "resume-uploader-api-post",
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 1024,
+        "Timeout": 5,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Aws.Api.ResumeUploader::Aws.Api.ResumeUploader.Functions_Post_Generated::Post",
+        "Events": {
+          "RootPost": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/",
+              "Method": "POST"
+            }
+          }
+        }
+      }
+    },
+    "AwsApiResumeUploaderFunctionsDeleteGenerated": {
+      "Type": "AWS::Serverless::Function",
+      "Metadata": {
+        "Tool": "Amazon.Lambda.Annotations",
+        "SyncedEvents": [
+          "RootDelete"
+        ]
+      },
+      "Properties": {
+        "Architectures": [
+          "arm64"
+        ],
+        "FunctionName": "resume-uploader-api-delete",
+        "Runtime": "dotnet6",
+        "CodeUri": ".",
+        "MemorySize": 1024,
+        "Timeout": 5,
+        "Policies": [
+          "AWSLambdaBasicExecutionRole"
+        ],
+        "PackageType": "Zip",
+        "Handler": "Aws.Api.ResumeUploader::Aws.Api.ResumeUploader.Functions_Delete_Generated::Delete",
+        "Events": {
+          "RootDelete": {
+            "Type": "Api",
+            "Properties": {
+              "Path": "/",
+              "Method": "DELETE"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "ApiURL": {
+      "Description": "API endpoint URL for Prod environment",
+      "Value": {
+        "Fn::Sub": "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+      }
+    }
+  }
+}

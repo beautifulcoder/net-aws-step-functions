@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="2.1.0" />
     <PackageReference Include="Amazon.Lambda.TestUtilities" Version="2.0.0" />
+    <PackageReference Include="Amazon.Lambda.APIGatewayEvents" Version="2.6.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
     <PackageReference Include="Moq" Version="4.20.69" />
     <PackageReference Include="xunit" Version="2.5.1" />
@@ -16,6 +17,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Aws.StepFunctions.ResumeUploader\Aws.StepFunctions.ResumeUploader.csproj" />
+    <ProjectReference Include="..\Aws.Api.ResumeUploader\Aws.Api.ResumeUploader.csproj" />
   </ItemGroup>
 </Project>
